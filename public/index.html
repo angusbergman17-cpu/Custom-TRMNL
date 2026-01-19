@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRMNL Server Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖥️ TRMNL Server Dashboard</h1>
+            <div class="status-indicator">
+                <span id="connection-status" class="status-dot"></span>
+                <span id="connection-text">Connecting...</span>
+            </div>
+        </header>
+
+        <div class="grid">
+            <!-- Screen Preview -->
+            <section class="card screen-preview">
+                <h2>Current Screen</h2>
+                <div class="screen-container">
+                    <img id="screen-image" src="/api/screen" alt="TRMNL Screen">
+                    <div class="screen-info">
+                        <span id="last-refresh">Last refresh: Never</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button onclick="refreshScreen()" class="btn btn-primary">🔄 Refresh Now</button>
+                    <button onclick="downloadScreen()" class="btn btn-secondary">💾 Download</button>
+                </div>
+            </section>
+
+            <!-- Layout Control -->
+            <section class="card">
+                <h2>Layout</h2>
+                <div class="layout-controls">
+                    <label>Current Layout:</label>
+                    <select id="layout-select" onchange="changeLayout()">
+                        <option value="dashboard">Dashboard</option>
+                        <option value="focus-weather">Focus: Weather</option>
+                        <option value="focus-calendar">Focus: Calendar</option>
+                        <option value="focus-news">Focus: News</option>
+                    </select>
+                </div>
+
+                <div class="rotation-controls">
+                    <h3>Rotation</h3>
+                    <label class="toggle">
+                        <input type="checkbox" id="rotation-enabled" onchange="toggleRotation()">
+                        <span>Enable Rotation</span>
+                    </label>
+                    <div id="rotation-settings" style="display: none;">
+                        <label>Interval (seconds):</label>
+                        <input type="number" id="rotation-interval" value="300" min="30">
+                        <button onclick="updateRotation()" class="btn btn-small">Update</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Plugin Status -->
+            <section class="card">
+                <h2>Data Sources</h2>
+                <div id="plugin-status" class="plugin-list">
+                    <p class="loading">Loading plugins...</p>
+                </div>
+            </section>
+
+            <!-- System Info -->
+            <section class="card">
+                <h2>System Info</h2>
+                <div id="system-info" class="info-grid">
+                    <div class="info-item">
+                        <label>Refresh Interval:</label>
+                        <span id="refresh-interval">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Auto Refresh:</label>
+                        <span id="auto-refresh">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Server Time:</label>
+                        <span id="server-time">-</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

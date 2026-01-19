@@ -1,0 +1,27 @@
+{
+  "name": "trmnl-server",
+  "version": "1.0.0",
+  "description": "Custom TRMNL e-ink display server with full API control",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["trmnl", "e-ink", "display", "server", "api"],
+  "author": "Angus",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jimp": "^1.6.0",
+    "node-cache": "^5.1.2",
+    "node-cron": "^4.2.1",
+    "rss-parser": "^3.13.0",
+    "sharp": "^0.34.5"
+  }
+}

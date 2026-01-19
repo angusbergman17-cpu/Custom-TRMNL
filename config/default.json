@@ -1,0 +1,50 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "0.0.0.0"
+  },
+  "device": {
+    "width": 800,
+    "height": 480,
+    "colorDepth": 1,
+    "orientation": "landscape"
+  },
+  "plugins": {
+    "weather": {
+      "enabled": true,
+      "refreshInterval": 900000,
+      "location": "Melbourne,AU",
+      "units": "metric"
+    },
+    "calendar": {
+      "enabled": false,
+      "refreshInterval": 300000,
+      "maxEvents": 5
+    },
+    "news": {
+      "enabled": true,
+      "refreshInterval": 1800000,
+      "maxItems": 5,
+      "feeds": [
+        "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+      ]
+    },
+    "custom": {
+      "enabled": false,
+      "refreshInterval": 600000,
+      "endpoints": []
+    }
+  },
+  "layout": {
+    "current": "dashboard"
+  },
+  "refresh": {
+    "refreshInterval": 300000,
+    "rotation": {
+      "enabled": false,
+      "interval": 300000,
+      "layouts": ["dashboard", "focus-weather", "focus-calendar", "focus-news"]
+    }
+  }
+}
