@@ -30,15 +30,14 @@ const refreshManager = new RefreshManager(pluginManager, layoutEngine, config.re
 // Initialize API
 app.use('/api', initializeRoutes(pluginManager, layoutEngine, refreshManager));
 
-// Start server with FIXED Render binding
+// Start server - FIXED FOR RENDER
 const PORT = process.env.PORT || 10000;
-const HOST = '0.0.0.0'; // THIS IS THE CRITICAL FIX
+const HOST = '0.0.0.0'; // This must be 0.0.0.0 for Render to work
 
 app.listen(PORT, HOST, () => {
   console.log('═══════════════════════════════════════════');
-  console.log('  🖥️  TRMNL Server Online (External Access Enabled)');
-  console.log('═══════════════════════════════════════════');
-  console.log(`  Target URL: https://trmnl-server.onrender.com/api/screen`);
+  console.log('  🖥️  TRMNL Server Online');
+  console.log(`  URL: https://trmnl-server.onrender.com/api/screen`);
   console.log('═══════════════════════════════════════════');
   refreshManager.start();
 });
